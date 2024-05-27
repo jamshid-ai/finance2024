@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block title %}Quote{% endblock %}
+
+{% block main %}
+    {% if context %}
+        <p><b>SYMBOL: {{ context.symbol }}</b></p>
+        <p><b>PRICE: {{ context.price }}</b></p>
+    {% else %}
+        <b>There is no such stock!</b>
+    {% endif %}
+{% endblock %}

@@ -86,3 +86,19 @@ def lookup(symbol):
 def usd(value):
     """Format value as USD."""
     return f"${value:,.2f}"
+
+
+def validate_register_form(form: dict) -> bool:
+    if form.get("username") and form.get("password") and form.get("confirmpassword"):
+        if form.get("password") == form.get("confirmpassword"):
+            return True
+    return False
+
+def validate_stock_form(form: dict) -> bool:
+    print(bool(form.get("shares")))
+    if form.get("symbol") and form.get("shares"):
+        if int(form.get("shares")) < 1:
+            return apology("Enter positive shares")
+        return True
+    else:
+        False
