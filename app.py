@@ -221,5 +221,5 @@ def sell():
         return redirect("/")
     return render_template("sell.html", stocks=stocks)
 
-if __name__ == "__name__":
+if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5510)
