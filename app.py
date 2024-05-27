@@ -201,7 +201,7 @@ def sell():
             return apology("Enter positive shares", 400)
         shares_sum = db.execute("SELECT SUM(shares) AS shares FROM transactions WHERE user_id = ? AND symbol = ?", session.get("user_id"), request.form.get("stock"))
         if shares_sum[0]['shares'] < int(request.form.get("shares")):
-            return apology(f"You don't have {request.form.get("shares")} shares", 400)
+            return apology(f"You don't have {request.form.get('shares')} shares", 400)
 
         # lookup stock and its price
         quote = lookup(request.form.get("stock"))
